@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "979fcf46-cfb2-407e-b754-3c90493c5592",
+		"name": "Express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19251230"
+	},
+	"item": [
+		{
+			"name": "healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/healthCheck",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"healthCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"saksham@mail.com\",\r\n    \"password\": \"saksham\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/login",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"saksham\",\r\n    \"username\": \"Sg\",\r\n    \"email\": \"saksham@mail.com\",\r\n    \"password\":\"saksham\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/register",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "entries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/entries",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"entries"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "cat",
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": null,
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "https",
+							"value": null,
+							"description": "bool",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": null,
+							"description": "string",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "random",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/random",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"random"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "",
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "",
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "https",
+							"value": "",
+							"description": "bool",
+							"disabled": true
+						},
+						{
+							"key": "cors",
+							"value": "",
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "",
+							"description": "string",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categories",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoic2Frc2hhbUBtYWlsLmNvbSIsIm5hbWUiOiJzYWtzaGFtIiwidXNlcm5hbWUiOiJTZyIsImlhdCI6MTcxMTk5MzY3OSwiZXhwIjoxNzEyMDgwMDc5fQ.tZxaOwdJ_u9LTZCuibSuIO0C0kD_iJASfsTXpBgEYG8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1/publicendpoint",
+			"type": "string"
+		},
+		{
+			"key": "authUrl",
+			"value": "http://localhost:3000/api/v1/auth",
+			"type": "string"
+		},
+		{
+			"key": "prodAuthUrl",
+			"value": "https://nodebackendapi-4.onrender.com/api/v1/auth",
+			"type": "string"
+		},
+		{
+			"key": "prodBaseUrl",
+			"value": "https://nodebackendapi-4.onrender.com/api/v1/publicendpoint",
+			"type": "string"
+		}
+	]
+}

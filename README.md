@@ -30,3 +30,5 @@
 ### This endpoint can be accessed by anyone and does not need any authentication
 
 - [Health Check](https://nodebackendapi-4.onrender.com/api/v1/publicendpoint/healthCheck) - checks if server is up
+
+Express.postman_collection is the whole postman collection for every above mentioned endpoints
