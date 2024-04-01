@@ -4,10 +4,10 @@ import publicEnpointsController from "../controller/PublicEnpointsController"
 
 class PublicEndPoints extends BaseRouter{
   routes(): void {
-    this.router.get('/entries', publicEnpointsController.entries );
-    this.router.get('/random', publicEnpointsController.random );
-    this.router.get('/categories', publicEnpointsController.categories );
-    this.router.get('/healthCheck', authMiddleware, publicEnpointsController.healthCheck);
+    this.router.get('/entries', authMiddleware, publicEnpointsController.entries );
+    this.router.get('/random', authMiddleware, publicEnpointsController.random );
+    this.router.get('/categories', authMiddleware, publicEnpointsController.categories );
+    this.router.get('/healthCheck', publicEnpointsController.healthCheck);
   }
   
 }

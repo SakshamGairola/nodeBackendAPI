@@ -69,6 +69,111 @@
 					}
 				}
 			}
+		},
+		"/api/v1/publicendpoint/entries": {
+			"get": {
+				"description": "get all objects that matches with provided parameters or all objects if no parameters are provided",
+				"responses": {
+					"200": {
+						"description": "On success return count and list of entries"
+					}
+				},
+				"parameters": [
+					{
+						"name": "title",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "description",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "https",
+						"in": "query",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					{
+						"name": "category",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/publicendpoint/random": {
+			"get": {
+				"description": "get a random objects that matches with provided parameters if provided",
+				"responses": {
+					"200": {
+						"description": "On success return an entries"
+					}
+				},
+				"parameters": [
+					{
+						"name": "title",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "description",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "https",
+						"in": "query",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					{
+						"name": "category",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/publicendpoint/categories": {
+			"get": {
+				"description": "get count and list of all available categories",
+				"responses": {
+					"200": {
+						"description": "On success returnlist of categories"
+					}
+				}
+			}
+		},
+		"/api/v1/publicendpoint/healthCheck": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"description": "route to check if service is live",
+				"responses": {
+					"200": {
+						"description": "{ alive : true }"
+					}
+				}
+			}
 		}
 	},
 	"components": {
@@ -92,6 +197,13 @@
 						"type": "string"
 					}
 				}
+			}
+		},
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
 			}
 		}
 	}
