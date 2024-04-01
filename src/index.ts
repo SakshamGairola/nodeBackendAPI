@@ -1,6 +1,9 @@
 import express, { Application, Request, Response } from 'express';
 import Database from './configuration/DatabaseConfig';
 import AuthenticationRouter from './routers/AuthenticationRouter';
+import swaggerUI from 'swagger-ui-express';
+import * as swaggerDocument from './swagger.json';
+
 class App {
 	public app: Application;
 
@@ -16,6 +19,8 @@ class App {
 			res.send('welcome');
 		});
 
+		this.app.use('/docs', swaggerUI.serve);
+		this.app.get('/docs', swaggerUI.setup(swaggerDocument, {explorer:true}))
 		this.app.use('/api/v1/auth', AuthenticationRouter);
 	}
 
