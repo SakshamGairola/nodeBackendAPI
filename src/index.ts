@@ -3,6 +3,7 @@ import Database from './configuration/DatabaseConfig';
 import AuthenticationRouter from './routers/AuthenticationRouter';
 import swaggerUI from 'swagger-ui-express';
 import * as swaggerDocument from './swagger.json';
+import PublicEndoints from './routers/PublicEndoints';
 
 class App {
 	public app: Application;
@@ -22,6 +23,7 @@ class App {
 		this.app.use('/docs', swaggerUI.serve);
 		this.app.get('/docs', swaggerUI.setup(swaggerDocument, {explorer:true}))
 		this.app.use('/api/v1/auth', AuthenticationRouter);
+		this.app.use('/api/v1/publicendpoint', PublicEndoints);
 	}
 
 	protected dataBaseSync(): void {

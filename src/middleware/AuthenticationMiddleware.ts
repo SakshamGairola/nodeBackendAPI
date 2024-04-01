@@ -4,7 +4,10 @@ import jwt from "jsonwebtoken";
 export const authMiddleware = (req: Request, res: Response, next: NextFunction): any => {
   
   if (!req.headers.authorization) {
-    return res.status(401).send("No autherization headers present");
+    return res.status(401).send({
+      status: 401,
+      message: "Login to access"
+    });
   }
 
   let secretKey = process.env.JWT_SECRET_KEY || "MY-SECRET-KEY";
